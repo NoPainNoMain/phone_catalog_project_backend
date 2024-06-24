@@ -1,0 +1,31 @@
+{
+  "name": "phone_catalog_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write . --ignore-path .gitignore",
+    "lint": "eslint --fix --ignore-path .gitignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/NoPainNoMain/phone_catalog_project_backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NoPainNoMain/phone_catalog_project_backend/issues"
+  },
+  "homepage": "https://github.com/NoPainNoMain/phone_catalog_project_backend#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.5.0",
+    "@mate-academy/eslint-config": "^0.0.29",
+    "eslint": "^7.21.3",
+    "globals": "^15.6.0",
+    "lint-staged": "^15.2.7",
+    "prettier": "3.3.2",
+    "typescript-eslint": "^7.13.1",
+    "husky": "^9.0.11"
+  }
+}
