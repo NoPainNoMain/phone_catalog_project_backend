@@ -1,0 +1,42 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1719220523268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719220641117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,21 @@\n+{\n+  \"name\": \"phone-catalog-project-backend\",\n+  \"version\": \"0.0.0\",\n+  \"private\": true,\n+  \"scripts\": {\n+    \"build\": \"swc src -d dist\",\n+    \"start\": \"node routes/index.js\"\n+  },\n+  \"dependencies\": {\n+    \"cookie-parser\": \"~1.4.4\",\n+    \"debug\": \"~2.6.9\",\n+    \"express\": \"~4.16.1\",\n+    \"http-errors\": \"~1.6.3\",\n+    \"jade\": \"~1.11.0\",\n+    \"morgan\": \"~1.9.1\"\n+  },\n+  \"devDependencies\": {\n+    \"@swc/cli\": \"^0.3.14\",\n+    \"@swc/core\": \"^1.6.5\"\n+  }\n+}\n"
+                },
+                {
+                    "date": 1719220653755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"version\": \"0.0.0\",\n   \"private\": true,\n   \"scripts\": {\n     \"build\": \"swc src -d dist\",\n-    \"start\": \"node routes/index.js\"\n+    \"start\": \"node app.js\"\n   },\n   \"dependencies\": {\n     \"cookie-parser\": \"~1.4.4\",\n     \"debug\": \"~2.6.9\",\n@@ -18,25 +18,4 @@\n     \"@swc/cli\": \"^0.3.14\",\n     \"@swc/core\": \"^1.6.5\"\n   }\n }\n-{\n-  \"name\": \"phone-catalog-project-backend\",\n-  \"version\": \"0.0.0\",\n-  \"private\": true,\n-  \"scripts\": {\n-    \"build\": \"swc src -d dist\",\n-    \"start\": \"node dist/index.js\"\n-  },\n-  \"dependencies\": {\n-    \"cookie-parser\": \"~1.4.4\",\n-    \"debug\": \"~2.6.9\",\n-    \"express\": \"~4.16.1\",\n-    \"http-errors\": \"~1.6.3\",\n-    \"jade\": \"~1.11.0\",\n-    \"morgan\": \"~1.9.1\"\n-  },\n-  \"devDependencies\": {\n-    \"@swc/cli\": \"^0.3.14\",\n-    \"@swc/core\": \"^1.6.5\"\n-  }\n-}\n"
+                },
+                {
+                    "date": 1719220797102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"version\": \"0.0.0\",\n   \"private\": true,\n   \"scripts\": {\n     \"build\": \"swc src -d dist\",\n-    \"start\": \"node app.js\"\n+    \"start\": \"node src/index.js\"\n   },\n   \"dependencies\": {\n     \"cookie-parser\": \"~1.4.4\",\n     \"debug\": \"~2.6.9\",\n"
+                },
+                {
+                    "date": 1719220809485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"version\": \"0.0.0\",\n   \"private\": true,\n   \"scripts\": {\n     \"build\": \"swc src -d dist\",\n-    \"start\": \"node src/index.js\"\n+    \"start\": \"node src/index.ts\"\n   },\n   \"dependencies\": {\n     \"cookie-parser\": \"~1.4.4\",\n     \"debug\": \"~2.6.9\",\n"
+                },
+                {
+                    "date": 1719221334016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"version\": \"0.0.0\",\n   \"private\": true,\n   \"scripts\": {\n     \"build\": \"swc src -d dist\",\n-    \"start\": \"node src/index.ts\"\n+    \"start\": \"node dist/index.js\"\n   },\n   \"dependencies\": {\n     \"cookie-parser\": \"~1.4.4\",\n     \"debug\": \"~2.6.9\",\n"
+                },
+                {
+                    "date": 1719221348073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"version\": \"0.0.0\",\n   \"private\": true,\n   \"scripts\": {\n     \"build\": \"swc src -d dist\",\n-    \"start\": \"node dist/index.js\"\n+    \"start\": \"node dist/src/index.js\"\n   },\n   \"dependencies\": {\n     \"cookie-parser\": \"~1.4.4\",\n     \"debug\": \"~2.6.9\",\n"
+                }
+            ],
+            "date": 1719220523268,
+            "name": "Commit-0",
+            "content": "{\n  \"name\": \"phone-catalog-project-backend\",\n  \"version\": \"0.0.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"build\": \"swc src -d dist\",\n    \"start\": \"node dist/index.js\"\n  },\n  \"dependencies\": {\n    \"cookie-parser\": \"~1.4.4\",\n    \"debug\": \"~2.6.9\",\n    \"express\": \"~4.16.1\",\n    \"http-errors\": \"~1.6.3\",\n    \"jade\": \"~1.11.0\",\n    \"morgan\": \"~1.9.1\"\n  },\n  \"devDependencies\": {\n    \"@swc/cli\": \"^0.3.14\",\n    \"@swc/core\": \"^1.6.5\"\n  }\n}\n"
+        }
+    ]
+}
