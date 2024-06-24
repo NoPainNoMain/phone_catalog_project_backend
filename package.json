@@ -28,5 +28,8 @@
   "overrides": {},
   "lint-staged": {
     ".ts": "npm run lint"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
   }
 }
