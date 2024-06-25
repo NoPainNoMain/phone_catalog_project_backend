@@ -5,7 +5,9 @@ import { sequelize } from "../db";
 import { ProductDetails } from "./ProductDetails.model";
 import { ProductAttributes, ProductCreationAttributes } from "../types/types";
 
-const Product = sequelize.define<Model<ProductAttributes, ProductCreationAttributes>>(
+const Product = sequelize.define<
+  Model<ProductAttributes, ProductCreationAttributes>
+>(
   "Product",
   {
     id: {

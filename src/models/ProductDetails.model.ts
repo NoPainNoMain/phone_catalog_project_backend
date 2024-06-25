@@ -1,11 +1,16 @@
-'use strict';
+"use strict";
 
-import { DataTypes, Model } from 'sequelize';
-import { sequelize } from '../db';
-import { ProductDetailsAttributes, ProductDetailsCreationAttributes } from '../types/types';
+import { DataTypes, Model } from "sequelize";
+import { sequelize } from "../db";
+import {
+  ProductDetailsAttributes,
+  ProductDetailsCreationAttributes,
+} from "../types/types";
 
-const ProductDetails = sequelize.define<Model<ProductDetailsAttributes, ProductDetailsCreationAttributes>>(
-  'ProductDetails',
+const ProductDetails = sequelize.define<
+  Model<ProductDetailsAttributes, ProductDetailsCreationAttributes>
+>(
+  "ProductDetails",
   {
     id: {
       type: DataTypes.STRING,
@@ -85,9 +90,9 @@ const ProductDetails = sequelize.define<Model<ProductDetailsAttributes, ProductD
     },
   },
   {
-    tableName: 'ProductDetails',
+    tableName: "ProductDetails",
     timestamps: true,
-  }
+  },
 );
 
 export { ProductDetails };
