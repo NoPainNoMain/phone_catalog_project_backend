@@ -1,10 +1,9 @@
 'use strict';
 
-const { DataTypes } = require('sequelize');
-const { sequelize } = require('./db.js');
-const { ProductDetails } = require('./ProductDetails.model.js');
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../db.js';
 
-const Product = sequelize.define(
+export const Product = sequelize.define(
   'Product',
   {
     id: {
@@ -56,22 +55,9 @@ const Product = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    productDetailsId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: ProductDetails,
-        key: 'id'
-      }
-    }
   },
   {
     tableName: 'Products',
     timestamps: true,
   }
 );
-
-Product.belongsTo(ProductDetails, { foreignKey: 'productDetailsId' });
-
-module.exports = {
-  Product,
-};
