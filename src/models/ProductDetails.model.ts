@@ -1,17 +1,17 @@
-'use strict';
+"use strict";
 
-import { DataTypes } from 'sequelize';
-import { sequelize } from'../db.js';
-import { Product } from'./Product.model.js';
+import { DataTypes } from "sequelize";
+import { sequelize } from "../db.js";
+import { Product } from "./Product.model.js";
 
 export const ProductDetails = sequelize.define(
-  'ProductDetails',
+  "ProductDetails",
   {
     id: {
       type: DataTypes.STRING,
       primaryKey: true,
       unique: true,
-      allowNull: false
+      allowNull: false,
     },
     namespaceId: {
       type: DataTypes.STRING,
@@ -75,14 +75,18 @@ export const ProductDetails = sequelize.define(
     },
   },
   {
-    tableName: 'ProductDetails',
+    tableName: "ProductDetails",
     timestamps: true,
-  }
+  },
 );
 
-ProductDetails.hasOne(Product, { foreignKey: {
-  name: 'itemId',
-} });
-Product.belongsTo(ProductDetails, { foreignKey: {
-  name: 'itemId',
-} });
+ProductDetails.hasOne(Product, {
+  foreignKey: {
+    name: "itemId",
+  },
+});
+Product.belongsTo(ProductDetails, {
+  foreignKey: {
+    name: "itemId",
+  },
+});

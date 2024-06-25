@@ -1,5 +1,4 @@
-import "./models/Product.model.js";
-import "./models/ProductDetails.model.js";
+import "./models/models";
 import { sequelize } from "./db.js";
 
-sequelize.sync({force: true});
+sequelize.sync({ force: true });

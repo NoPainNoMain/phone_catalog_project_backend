@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
-import { DataTypes } from 'sequelize';
-import { sequelize } from '../db.js';
+import { DataTypes } from "sequelize";
+import { sequelize } from "../db.js";
 
 export const Product = sequelize.define(
-  'Product',
+  "Product",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -57,7 +57,7 @@ export const Product = sequelize.define(
     },
   },
   {
-    tableName: 'Products',
+    tableName: "Products",
     timestamps: true,
-  }
+  },
 );
