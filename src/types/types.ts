@@ -1,7 +1,6 @@
 export interface ProductAttributes {
   id: number;
   category: string;
-  itemId: string;
   name: string;
   fullPrice: number;
   price: number;
@@ -14,10 +13,11 @@ export interface ProductAttributes {
   productDetailsId: number;
 }
 
-export type ProductCreationAttributes = Omit<ProductAttributes, 'id'>;
+export type ProductCreationAttributes = ProductAttributes;
 
 export interface ProductDetailsAttributes {
   id: number;
+  category: string;
   namespaceId: string;
   name: string;
   capacityAvailable: string[];
@@ -32,7 +32,9 @@ export interface ProductDetailsAttributes {
   resolution: string;
   processor: string;
   ram: string;
+  camera: string;
+  zoom: string;
   cell: string[];
 }
 
-export type ProductDetailsCreationAttributes = Omit<ProductDetailsAttributes, 'id'>;
+export type ProductDetailsCreationAttributes = ProductDetailsAttributes;

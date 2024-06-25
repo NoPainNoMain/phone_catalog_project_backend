@@ -2,16 +2,18 @@
 
 import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../db';
-import { Product } from './Product.model';
 import { ProductDetailsAttributes, ProductDetailsCreationAttributes } from '../types/types';
 
 const ProductDetails = sequelize.define<Model<ProductDetailsAttributes, ProductDetailsCreationAttributes>>(
   'ProductDetails',
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       primaryKey: true,
-      autoIncrement: true,
+    },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     namespaceId: {
       type: DataTypes.STRING,
@@ -69,6 +71,14 @@ const ProductDetails = sequelize.define<Model<ProductDetailsAttributes, ProductD
       type: DataTypes.STRING,
       allowNull: false,
     },
+    camera: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    zoom: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     cell: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
@@ -79,7 +89,5 @@ const ProductDetails = sequelize.define<Model<ProductDetailsAttributes, ProductD
     timestamps: true,
   }
 );
-
-ProductDetails.hasOne(Product, { foreignKey: 'productDetailsId' });
 
 export { ProductDetails };

@@ -9,15 +9,10 @@ const Product = sequelize.define<Model<ProductAttributes, ProductCreationAttribu
   "Product",
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       primaryKey: true,
-      autoIncrement: true,
     },
     category: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    itemId: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -70,7 +65,5 @@ const Product = sequelize.define<Model<ProductAttributes, ProductCreationAttribu
     timestamps: true,
   },
 );
-
-Product.belongsTo(ProductDetails, { foreignKey: "productDetailsId" });
 
 export { Product };
