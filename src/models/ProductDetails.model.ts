@@ -1,10 +1,11 @@
 'use strict';
 
-const { DataTypes } = require('sequelize');
-const { sequelize } = require('./db.js');
-const { Product } = require('./Product.model.js');
+import { DataTypes, Model } from 'sequelize';
+import { sequelize } from '../db';
+import { Product } from './Product.model';
+import { ProductDetailsAttributes, ProductDetailsCreationAttributes } from '../types/types';
 
-const ProductDetails = sequelize.define(
+const ProductDetails = sequelize.define<Model<ProductDetailsAttributes, ProductDetailsCreationAttributes>>(
   'ProductDetails',
   {
     id: {
@@ -81,6 +82,4 @@ const ProductDetails = sequelize.define(
 
 ProductDetails.hasOne(Product, { foreignKey: 'productDetailsId' });
 
-module.exports = {
-  ProductDetails,
-};
+export { ProductDetails };
