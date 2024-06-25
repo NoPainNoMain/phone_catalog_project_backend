@@ -1,22 +1,20 @@
-'use strict';
+"use strict";
 
-const { DataTypes } = require('sequelize');
-const { sequelize } = require('./db.js');
-const { ProductDetails } = require('./ProductDetails.model.js');
+import { DataTypes, Model } from "sequelize";
+import { sequelize } from "../db";
+import { ProductDetails } from "./ProductDetails.model";
+import { ProductAttributes, ProductCreationAttributes } from "../types/types";
 
-const Product = sequelize.define(
-  'Product',
+const Product = sequelize.define<
+  Model<ProductAttributes, ProductCreationAttributes>
+>(
+  "Product",
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       primaryKey: true,
-      autoIncrement: true,
     },
     category: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    itemId: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -60,18 +58,14 @@ const Product = sequelize.define(
       type: DataTypes.INTEGER,
       references: {
         model: ProductDetails,
-        key: 'id'
-      }
-    }
+        key: "id",
+      },
+    },
   },
   {
-    tableName: 'Products',
+    tableName: "Products",
     timestamps: true,
-  }
+  },
 );
 
-Product.belongsTo(ProductDetails, { foreignKey: 'productDetailsId' });
-
-module.exports = {
-  Product,
-};
+export { Product };
