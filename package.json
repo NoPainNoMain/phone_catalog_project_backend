@@ -2,31 +2,32 @@
   "name": "phone_catalog_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
   "scripts": {
     "format": "prettier --write . --ignore-path .gitignore",
-    "lint": "eslint --fix --ignore-path .gitignore"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/NoPainNoMain/phone_catalog_project_backend.git"
+    "lint": "eslint .",
+    "format-lint": "npm run format && npm run lint -- --fix",
+    "prepare": "husky"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NoPainNoMain/phone_catalog_project_backend/issues"
-  },
-  "homepage": "https://github.com/NoPainNoMain/phone_catalog_project_backend#readme",
   "devDependencies": {
     "@eslint/js": "^9.5.0",
-    "@mate-academy/eslint-config": "^0.0.29",
-    "eslint": "^7.21.3",
+    "@types/node": "^20.14.8",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "globals": "^15.6.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
     "prettier": "3.3.2",
     "typescript-eslint": "^7.13.1"
+  },
+  "overrides": {},
+  "lint-staged": {
+    ".ts": "npm run lint"
   },
   "dependencies": {
     "express": "^4.19.2"
