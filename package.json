@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "format-lint": "npm run format && npm run lint -- --fix",
     "config-db": "npx tsx ./src/config.ts",
+    "dev": "tsx watch server.ts",
     "prepare": "husky"
   },
   "author": "",
