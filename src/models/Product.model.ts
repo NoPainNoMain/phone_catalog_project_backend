@@ -1,21 +1,19 @@
 "use strict";
 
-import { DataTypes } from "sequelize";
-import { sequelize } from "../db.js";
+import { DataTypes, Model } from "sequelize";
+import { sequelize } from "../db";
+import { ProductAttributes, ProductCreationAttributes } from "../types/types";
 
-export const Product = sequelize.define(
+const Product = sequelize.define<
+  Model<ProductAttributes, ProductCreationAttributes>
+>(
   "Product",
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       primaryKey: true,
-      autoIncrement: true,
     },
     category: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    itemId: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -61,3 +59,5 @@ export const Product = sequelize.define(
     timestamps: true,
   },
 );
+
+export { Product };

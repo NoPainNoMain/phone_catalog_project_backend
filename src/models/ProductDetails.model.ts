@@ -1,16 +1,23 @@
 "use strict";
 
-import { DataTypes } from "sequelize";
-import { sequelize } from "../db.js";
-import { Product } from "./Product.model.js";
+import { DataTypes, Model } from "sequelize";
+import { sequelize } from "../db";
+import {
+  ProductDetailsAttributes,
+  ProductDetailsCreationAttributes,
+} from "../types/types";
 
-export const ProductDetails = sequelize.define(
+const ProductDetails = sequelize.define<
+  Model<ProductDetailsAttributes, ProductDetailsCreationAttributes>
+>(
   "ProductDetails",
   {
     id: {
       type: DataTypes.STRING,
       primaryKey: true,
-      unique: true,
+    },
+    category: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     namespaceId: {
@@ -69,6 +76,14 @@ export const ProductDetails = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    camera: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    zoom: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     cell: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
@@ -80,13 +95,4 @@ export const ProductDetails = sequelize.define(
   },
 );
 
-ProductDetails.hasOne(Product, {
-  foreignKey: {
-    name: "itemId",
-  },
-});
-Product.belongsTo(ProductDetails, {
-  foreignKey: {
-    name: "itemId",
-  },
-});
+export { ProductDetails };
