@@ -2,7 +2,6 @@
 
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../db";
-import { ProductDetails } from "./ProductDetails.model";
 import { ProductAttributes, ProductCreationAttributes } from "../types/types";
 
 const Product = sequelize.define<
@@ -53,13 +52,6 @@ const Product = sequelize.define<
     image: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    productDetailsId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: ProductDetails,
-        key: "id",
-      },
     },
   },
   {

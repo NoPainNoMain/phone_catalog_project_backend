@@ -1,8 +1,6 @@
 import { Sequelize } from "sequelize";
+import "dotenv/config";
 
-const sequelize = new Sequelize({
-  dialect: "sqlite",
-  storage: ":memory:",
-});
+const { DB_URL } = process.env;
 
-export { sequelize };
+export const sequelize = new Sequelize(DB_URL);
