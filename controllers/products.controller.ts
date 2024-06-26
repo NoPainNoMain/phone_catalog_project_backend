@@ -41,4 +41,18 @@ export const getProducts: RequestHandler = async (req, res, next) => {
   }
 };
 
+export const getProductDetails: RequestHandler = async (req, res, next) => {
+  const { id } = req.params;
+
+  console.log(id);
+
+  try {
+    const productDetails = await productsService.getProductDetails(id);
+
+    res.send(productDetails);
+  } catch (e) {
+    next(e);
+  }
+};
+
 export default { getProducts };
