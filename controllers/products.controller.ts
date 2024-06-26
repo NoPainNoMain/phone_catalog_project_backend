@@ -1,7 +1,13 @@
-// import productsService from "../services/products.services";
+import getProducts from "../services/products.services";
 
-export const getTest = (req, res) => {
-  res.send("Test working");
+const getProductsController = async (_req, res) => {
+  try {
+    const products = await getProducts();
+
+    res.send(products);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
 };
 
-export default { getTest };
+export default getProductsController;
