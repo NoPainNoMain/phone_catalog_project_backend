@@ -12,7 +12,6 @@ export interface ProductAttributes {
   ram: string;
   year: number;
   image: string;
-  productDetailsId: number;
 }
 
 export type ProductCreationAttributes = ProductAttributes;
