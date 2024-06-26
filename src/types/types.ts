@@ -1,7 +1,6 @@
 import { Model } from "sequelize";
 
 export interface ProductAttributes {
-  id: number;
   category: string;
   name: string;
   fullPrice: number;
@@ -49,16 +48,11 @@ export interface UserAttributes {
 
 export type UserCreationAttributes = UserAttributes;
 
-export interface FavoriteAttributes {
-  id: number;
-  userId: number;
-  productId: string;
-}
+export interface FavoriteAttributes {}
 
 export type FavoriteCreationAttributes = FavoriteAttributes;
 
 export interface CartItemAttributes {
-  productId: string;
   quantity: number;
 }
 

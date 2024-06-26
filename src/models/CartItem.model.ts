@@ -5,11 +5,8 @@ import { sequelize } from "../db";
 import { CartItemInstance } from "../types/types";
 
 const CartItem = sequelize.define<CartItemInstance>(
-  "CartItem",
+  "cartItem",
   {
-    productId: {
-      type: DataTypes.STRING,
-    },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -17,7 +14,7 @@ const CartItem = sequelize.define<CartItemInstance>(
     },
   },
   {
-    tableName: "CartItems",
+    tableName: "cart_items",
     timestamps: true,
   },
 );
