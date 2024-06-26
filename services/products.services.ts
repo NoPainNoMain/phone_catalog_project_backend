@@ -4,7 +4,6 @@ import {
   ProductCreationAttributes,
   ProductDetailsCreationAttributes,
 } from "../src/types/types";
-import sequelize from "sequelize";
 
 export async function getProducts(
   limit?: number,
