@@ -1,7 +1,44 @@
-// import productsService from "../services/products.services";
+import { Order } from "sequelize";
+import productsService from "../services/products.services";
 
-export const getTest = (req, res) => {
-  res.send("Test working");
+import { RequestHandler } from "express";
+import { ApiError } from "../src/errors/ApiError";
+
+export const getProducts: RequestHandler = async (req, res, next) => {
+  const { page, perPage, sortBy } = req.query;
+
+  try {
+    let limit: number;
+    let offset: number;
+    const order: Order = [];
+
+    if (page && perPage) {
+      limit = +perPage;
+      offset = (+page - 1) * limit;
+    }
+
+    if (sortBy) {
+      switch (sortBy) {
+        case "newest":
+          order.push(["year", "DESC"]);
+          break;
+        case "oldest":
+          order.push(["year", "ASC"]);
+          break;
+        case "price-low":
+          order.push(["price", "ASC"]);
+          break;
+        case "price-high":
+          order.push(["price", "DESC"]);
+          break;
+        default:
+      }
+    }
+    const products = await productsService.getProducts(limit, offset, order);
+    res.send(products);
+  } catch (e) {
+    next(ApiError.badRequest("wrong query params"));
+  }
 };
 
-export default { getTest };
+export default { getProducts };
