@@ -7,12 +7,8 @@ import { ProductAttributes, ProductCreationAttributes } from "../types/types";
 const Product = sequelize.define<
   Model<ProductAttributes, ProductCreationAttributes>
 >(
-  "Product",
+  "product",
   {
-    id: {
-      type: DataTypes.STRING,
-      primaryKey: true,
-    },
     category: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -55,7 +51,7 @@ const Product = sequelize.define<
     },
   },
   {
-    tableName: "Products",
+    tableName: "products",
     timestamps: true,
   },
 );

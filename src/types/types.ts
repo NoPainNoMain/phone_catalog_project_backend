@@ -1,5 +1,6 @@
+import { Model } from "sequelize";
+
 export interface ProductAttributes {
-  id: number;
   category: string;
   name: string;
   fullPrice: number;
@@ -37,3 +38,34 @@ export interface ProductDetailsAttributes {
 }
 
 export type ProductDetailsCreationAttributes = ProductDetailsAttributes;
+
+export interface UserAttributes {
+  id: number;
+  username: string;
+  email: string;
+  password: string;
+}
+
+export type UserCreationAttributes = UserAttributes;
+
+export interface FavoriteAttributes {}
+
+export type FavoriteCreationAttributes = FavoriteAttributes;
+
+export interface CartItemAttributes {
+  quantity: number;
+}
+
+export type CartItemCreationAttributes = CartItemAttributes;
+
+export interface UserInstance
+  extends Model<UserAttributes, UserCreationAttributes>,
+    UserAttributes {}
+
+export interface FavoriteInstance
+  extends Model<FavoriteAttributes, FavoriteCreationAttributes>,
+    FavoriteAttributes {}
+
+export interface CartItemInstance
+  extends Model<CartItemAttributes, CartItemCreationAttributes>,
+    CartItemAttributes {}

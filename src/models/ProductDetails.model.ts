@@ -10,7 +10,7 @@ import {
 const ProductDetails = sequelize.define<
   Model<ProductDetailsAttributes, ProductDetailsCreationAttributes>
 >(
-  "ProductDetails",
+  "productDetails",
   {
     id: {
       type: DataTypes.STRING,
@@ -90,7 +90,7 @@ const ProductDetails = sequelize.define<
     },
   },
   {
-    tableName: "ProductDetails",
+    tableName: "product_details",
     timestamps: true,
   },
 );
