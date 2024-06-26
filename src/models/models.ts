@@ -1,9 +1,12 @@
-"use strict";
-
-import { ProductDetails } from "./ProductDetails.model";
 import { Product } from "./Product.model";
+import { ProductDetails } from "./ProductDetails.model";
+import { Favorite } from "./Favorite.model";
+import { CartItem } from "./CartItem.model";
 
 ProductDetails.hasOne(Product, { foreignKey: "itemId" });
 Product.belongsTo(ProductDetails, { foreignKey: "itemId" });
 
-export { ProductDetails, Product };
+CartItem.belongsTo(Product, { foreignKey: "productId" });
+Product.hasMany(CartItem, { foreignKey: "productId" });
+
+export { Product, ProductDetails, Favorite, CartItem };
