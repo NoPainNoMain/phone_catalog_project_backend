@@ -1,5 +1,8 @@
 import { Order } from "sequelize";
-import productsService from "../services/products.services";
+import productsService, {
+  getDiscountedProducts,
+  getNewProducts,
+} from "../services/products.services";
 
 import { RequestHandler } from "express";
 import { ApiError } from "../src/errors/ApiError";
@@ -41,4 +44,33 @@ export const getProducts: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { getProducts };
+export const getDiscountedProductsHandler: RequestHandler = async (
+  _req,
+  res,
+  next,
+) => {
+  try {
+    const discountedProducts = await getDiscountedProducts();
+    res.send(discountedProducts);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getNewProductsHandler: RequestHandler = async (
+  _req,
+  res,
+  next,
+) => {
+  try {
+    const newProducts = await getNewProducts();
+    res.send(newProducts);
+  } catch (error) {
+    next(error);
+  }
+};
+export default {
+  getProducts,
+  getDiscountedProductsHandler,
+  getNewProductsHandler,
+};
