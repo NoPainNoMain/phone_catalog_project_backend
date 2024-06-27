@@ -5,9 +5,17 @@ import { RequestHandler } from "express";
 import { ApiError } from "../src/errors/ApiError";
 
 export const getProducts: RequestHandler = async (req, res, next) => {
-  const { page, perPage, sortBy } = req.query;
+  const { page, perPage, sortBy, category, search } = req.query;
 
   try {
+    if (typeof category !== "string" && typeof category !== "undefined") {
+      throw ApiError.badRequest("wrong category");
+    }
+
+    if (typeof search !== "string" && typeof search !== "undefined") {
+      throw ApiError.badRequest("wrong category");
+    }
+
     let limit: number;
     let offset: number;
     const order: Order = [];
@@ -34,7 +42,13 @@ export const getProducts: RequestHandler = async (req, res, next) => {
         default:
       }
     }
-    const products = await productsService.getProducts(limit, offset, order);
+    const products = await productsService.getProducts(
+      limit,
+      offset,
+      order,
+      category,
+      search,
+    );
     res.send(products);
   } catch (e) {
     next(ApiError.badRequest("wrong query params"));
