@@ -55,4 +55,34 @@ export const getProductDetails: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { getProducts };
+export const getDiscountedProductsHandler: RequestHandler = async (
+  _req,
+  res,
+  next,
+) => {
+  try {
+    const discountedProducts = await productsService.getDiscountedProducts();
+    res.send(discountedProducts);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getNewProductsHandler: RequestHandler = async (
+  _req,
+  res,
+  next,
+) => {
+  try {
+    const newProducts = await productsService.getNewProducts();
+    res.send(newProducts);
+  } catch (error) {
+    next(error);
+  }
+};
+export default {
+  getProducts,
+  getDiscountedProductsHandler,
+  getNewProductsHandler,
+  getProductDetails,
+};
