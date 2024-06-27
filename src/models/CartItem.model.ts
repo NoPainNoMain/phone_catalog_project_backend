@@ -1,8 +1,8 @@
 "use strict";
 
 import { DataTypes } from "sequelize";
-import { sequelize } from "../db";
-import { CartItemAtr } from "../types/types";
+import { sequelize } from "../db.js";
+import { CartItemAtr } from "../types/types.js";
 
 const CartItem = sequelize.define<CartItemAtr>(
   "CartItem",

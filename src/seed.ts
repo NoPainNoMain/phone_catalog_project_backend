@@ -1,5 +1,8 @@
 import fs from "fs";
-import { createDetails, createProducts } from "../services/products.services";
+import {
+  createDetails,
+  createProducts,
+} from "../services/products.services.js";
 
 const products = fs.readFileSync("./public/api/products.json", "utf-8");
 const accessories = fs.readFileSync("./public/api/accessories.json", "utf-8");

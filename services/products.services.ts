@@ -1,7 +1,7 @@
 import { Op, Order, Sequelize, WhereOptions } from "sequelize";
-import { Product, ProductDetails } from "../src/models/models";
-import { ApiError } from "../src/errors/ApiError";
-import { ProductAtr, ProductDetailsAtr } from "../src/types/types";
+import { Product, ProductDetails } from "../src/models/models.js";
+import { ApiError } from "../src/errors/ApiError.js";
+import { ProductAtr, ProductDetailsAtr } from "../src/types/types.js";
 
 export async function getProducts(
   limit?: number,

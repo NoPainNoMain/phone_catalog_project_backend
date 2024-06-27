@@ -1,8 +1,8 @@
 "use strict";
 
 import { DataTypes } from "sequelize";
-import { sequelize } from "../db";
-import { ProductAtr } from "../types/types";
+import { sequelize } from "../db.js";
+import { ProductAtr } from "../types/types.js";
 
 const Product = sequelize.define<ProductAtr>(
   "Product",

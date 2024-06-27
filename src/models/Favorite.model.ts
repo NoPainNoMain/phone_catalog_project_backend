@@ -1,8 +1,8 @@
 "use strict";
 
 import { DataTypes } from "sequelize";
-import { sequelize } from "../db";
-import { FavoriteAtr } from "../types/types";
+import { sequelize } from "../db.js";
+import { FavoriteAtr } from "../types/types.js";
 
 const Favorite = sequelize.define<FavoriteAtr>(
   "Favorite",
