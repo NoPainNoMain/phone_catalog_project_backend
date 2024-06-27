@@ -1,10 +1,18 @@
 "use strict";
 
+import { DataTypes } from "sequelize";
 import { sequelize } from "../db";
+import { UserAtr } from "../types/types";
 
-const User = sequelize.define(
-  "user",
-  {},
+const User = sequelize.define<UserAtr>(
+  "User",
+  {
+    id: {
+      primaryKey: true,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+    },
+  },
   {
     tableName: "users",
     timestamps: true,

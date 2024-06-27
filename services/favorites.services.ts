@@ -3,16 +3,14 @@ import { Favorite } from "../src/models/Favorite.model";
 import { Product } from "../src/models/Product.model";
 
 export const getFavoriteProducts = async (userId: number) => {
-  return Product.findAll({
-    include: [
-      {
-        model: Favorite,
-        where: {
-          userId,
-        },
-      },
-    ],
+  const favsRow = await Favorite.findAll({
+    include: Product,
+    where: {
+      userId,
+    },
   });
+
+  return favsRow.map((f) => f.product);
 };
 
 export const addFavoriteProduct = async ({
