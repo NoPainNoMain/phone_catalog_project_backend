@@ -1,15 +1,6 @@
-import {
-  CreationOptional,
-  InferAttributes,
-  InferCreationAttributes,
-  Model,
-  NonAttribute,
-} from "sequelize";
+import { Model, NonAttribute } from "sequelize";
 
-export interface Product
-  extends Model<InferAttributes<Product>, InferCreationAttributes<Product>> {
-  id: CreationOptional<number>;
-  itemId: CreationOptional<string>;
+export interface ProductAttributes {
   category: string;
   name: string;
   fullPrice: number;
@@ -22,12 +13,10 @@ export interface Product
   image: string;
 }
 
-export interface ProductDetails
-  extends Model<
-    InferAttributes<ProductDetails>,
-    InferCreationAttributes<ProductDetails>
-  > {
-  id: string;
+export type ProductCreationAttributes = ProductAttributes;
+
+export interface ProductDetailsAttributes {
+  id: number;
   category: string;
   namespaceId: string;
   name: string;
@@ -38,7 +27,7 @@ export interface ProductDetails
   colorsAvailable: string[];
   color: string;
   images: string[];
-  description: Array<unknown>;
+  description: Record<string, unknown>;
   screen: string;
   resolution: string;
   processor: string;
@@ -46,27 +35,45 @@ export interface ProductDetails
   camera: string;
   zoom: string;
   cell: string[];
-  product: NonAttribute<Product>;
+  product?: NonAttribute<ProductAttributes>;
 }
 
-export interface User
-  extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
-  id: CreationOptional<number>;
+export type ProductDetailsCreationAttributes = ProductDetailsAttributes;
+
+export interface UserAttributes {
+  id: number;
+  username: string;
+  email: string;
+  password: string;
 }
 
-export interface Favorite
-  extends Model<InferAttributes<Favorite>, InferCreationAttributes<Favorite>> {
-  id: CreationOptional<number>;
+export type UserCreationAttributes = UserAttributes;
+
+export interface FavoriteAttributes {
+  id: number;
   userId: number;
   productId: number;
-  product: NonAttribute<Product>;
 }
 
-export interface CartItem
-  extends Model<InferAttributes<CartItem>, InferCreationAttributes<CartItem>> {
-  quantity: CreationOptional<number>;
-  id: CreationOptional<number>;
+export type FavoriteCreationAttributes = FavoriteAttributes;
+
+export interface CartItemAttributes {
+  quantity: number;
+  id: number;
   userId: number;
   productId: number;
-  product: NonAttribute<Product>;
 }
+
+export type CartItemCreationAttributes = CartItemAttributes;
+
+export interface UserInstance
+  extends Model<UserAttributes, UserCreationAttributes>,
+    UserAttributes {}
+
+export interface FavoriteInstance
+  extends Model<FavoriteAttributes, FavoriteCreationAttributes>,
+    FavoriteAttributes {}
+
+export interface CartItemInstance
+  extends Model<CartItemAttributes, CartItemCreationAttributes>,
+    CartItemAttributes {}

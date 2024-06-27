@@ -1,24 +1,14 @@
 "use strict";
 
-import { DataTypes } from "sequelize";
+import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../db";
-import { Product } from "../types/types";
+import { ProductAttributes, ProductCreationAttributes } from "../types/types";
 
-const Product = sequelize.define<Product>(
+const Product = sequelize.define<
+  Model<ProductAttributes, ProductCreationAttributes>
+>(
   "product",
   {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    itemId: {
-      type: DataTypes.STRING,
-      references: {
-        model: "ProductDetail",
-        key: "id",
-      },
-    },
     category: {
       type: DataTypes.STRING,
       allowNull: false,
