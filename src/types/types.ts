@@ -35,7 +35,7 @@ export interface ProductDetailsAttributes {
   camera: string;
   zoom: string;
   cell: string[];
-  product: NonAttribute<ProductAttributes>;
+  product?: NonAttribute<ProductAttributes>;
 }
 
 export type ProductDetailsCreationAttributes = ProductDetailsAttributes;

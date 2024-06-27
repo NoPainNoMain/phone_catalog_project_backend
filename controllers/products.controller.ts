@@ -94,9 +94,27 @@ export const getNewProductsHandler: RequestHandler = async (
     next(error);
   }
 };
+
+export const getRecommendedProducts: RequestHandler = async (
+  req,
+  res,
+  next,
+) => {
+  const { id } = req.params;
+
+  try {
+    const recommendedProducts =
+      await productsService.getRecommendedProducts(id);
+    res.send(recommendedProducts);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export default {
   getProducts,
   getDiscountedProductsHandler,
   getNewProductsHandler,
   getProductDetails,
+  getRecommendedProducts,
 };
