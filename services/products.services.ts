@@ -1,11 +1,7 @@
 import { Op, Order, Sequelize, WhereOptions } from "sequelize";
 import { Product, ProductDetails } from "../src/models/models";
 import { ApiError } from "../src/errors/ApiError";
-import {
-  ProductAttributes,
-  ProductCreationAttributes,
-  ProductDetailsCreationAttributes,
-} from "../src/types/types";
+
 export async function getProducts(
   limit?: number,
   offset?: number,
@@ -13,7 +9,7 @@ export async function getProducts(
   category?: string,
   name?: string,
 ) {
-  const where: WhereOptions<ProductAttributes> = {};
+  const where: WhereOptions<Product> = {};
   if (category) {
     where.category = category;
   }
@@ -75,7 +71,7 @@ export const getNewProducts = async () => {
   });
 };
 
-export const createProducts = async (products: ProductCreationAttributes[]) => {
+export const createProducts = async (products: Product[]) => {
   return Product.bulkCreate(products);
 };
 
