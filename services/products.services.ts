@@ -2,6 +2,10 @@ import { Op, Order, WhereOptions } from "sequelize";
 import { Product, ProductDetails } from "../src/models/models";
 import { ApiError } from "../src/errors/ApiError";
 import { ProductAttributes } from "../src/types/types";
+import {
+  ProductCreationAttributes,
+  ProductDetailsCreationAttributes,
+} from "../src/types/types";
 
 export async function getProducts(
   limit?: number,
@@ -53,7 +57,19 @@ export async function getProductDetails(id: string) {
   return details;
 }
 
+export const createProducts = async (products: ProductCreationAttributes[]) => {
+  return Product.bulkCreate(products);
+};
+
+export const createDetails = async (
+  details: ProductDetailsCreationAttributes[],
+) => {
+  return ProductDetails.bulkCreate(details);
+};
+
 export default {
   getProducts,
   getProductDetails,
+  createProducts,
+  createDetails,
 };

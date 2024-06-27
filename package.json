@@ -10,7 +10,8 @@
     "format-lint": "npm run format && npm run lint -- --fix",
     "config-db": "npx tsx ./src/config.ts",
     "dev": "tsx watch server.ts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "seed-db": "tsx ./src/seed.ts"
   },
   "author": "",
   "license": "ISC",
