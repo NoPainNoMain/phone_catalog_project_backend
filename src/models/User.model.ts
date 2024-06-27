@@ -5,7 +5,7 @@ import { sequelize } from "../db.js";
 import { UserAtr } from "../types/types.js";
 
 const User = sequelize.define<UserAtr>(
-  "User",
+  "user",
   {
     id: {
       primaryKey: true,

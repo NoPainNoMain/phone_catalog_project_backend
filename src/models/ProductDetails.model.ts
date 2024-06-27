@@ -5,7 +5,7 @@ import { sequelize } from "../db.js";
 import { ProductDetailsAtr } from "../types/types.js";
 
 const ProductDetails = sequelize.define<ProductDetailsAtr>(
-  "ProductDetail",
+  "productDetail",
   {
     id: {
       type: DataTypes.STRING,
