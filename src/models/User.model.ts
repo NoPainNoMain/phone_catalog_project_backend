@@ -2,9 +2,9 @@
 
 import { DataTypes } from "sequelize";
 import { sequelize } from "../db";
-import { User } from "../types/types";
+import { UserAtr } from "../types/types";
 
-const User = sequelize.define<User>(
+const User = sequelize.define<UserAtr>(
   "user",
   {
     id: {

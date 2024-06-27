@@ -2,9 +2,9 @@
 
 import { DataTypes } from "sequelize";
 import { sequelize } from "../db";
-import { Product } from "../types/types";
+import { ProductAtr } from "../types/types";
 
-const Product = sequelize.define<Product>(
+const Product = sequelize.define<ProductAtr>(
   "product",
   {
     id: {

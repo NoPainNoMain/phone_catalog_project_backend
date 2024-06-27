@@ -6,8 +6,11 @@ import {
   NonAttribute,
 } from "sequelize";
 
-export interface Product
-  extends Model<InferAttributes<Product>, InferCreationAttributes<Product>> {
+export interface ProductAtr
+  extends Model<
+    InferAttributes<ProductAtr>,
+    InferCreationAttributes<ProductAtr>
+  > {
   id: CreationOptional<number>;
   itemId: CreationOptional<string>;
   category: string;
@@ -22,10 +25,10 @@ export interface Product
   image: string;
 }
 
-export interface ProductDetails
+export interface ProductDetailsAtr
   extends Model<
-    InferAttributes<ProductDetails>,
-    InferCreationAttributes<ProductDetails>
+    InferAttributes<ProductDetailsAtr>,
+    InferCreationAttributes<ProductDetailsAtr>
   > {
   id: string;
   category: string;
@@ -46,27 +49,33 @@ export interface ProductDetails
   camera: string;
   zoom: string;
   cell: string[];
-  product: NonAttribute<Product>;
+  product: NonAttribute<ProductAtr>;
 }
 
-export interface User
-  extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
+export interface UserAtr
+  extends Model<InferAttributes<UserAtr>, InferCreationAttributes<UserAtr>> {
   id: CreationOptional<number>;
 }
 
-export interface Favorite
-  extends Model<InferAttributes<Favorite>, InferCreationAttributes<Favorite>> {
+export interface FavoriteAtr
+  extends Model<
+    InferAttributes<FavoriteAtr>,
+    InferCreationAttributes<FavoriteAtr>
+  > {
   id: CreationOptional<number>;
   userId: number;
   productId: number;
-  product: NonAttribute<Product>;
+  product: NonAttribute<ProductAtr>;
 }
 
-export interface CartItem
-  extends Model<InferAttributes<CartItem>, InferCreationAttributes<CartItem>> {
+export interface CartItemAtr
+  extends Model<
+    InferAttributes<CartItemAtr>,
+    InferCreationAttributes<CartItemAtr>
+  > {
   quantity: CreationOptional<number>;
   id: CreationOptional<number>;
   userId: number;
   productId: number;
-  product: NonAttribute<Product>;
+  product: NonAttribute<ProductAtr>;
 }

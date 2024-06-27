@@ -2,9 +2,9 @@
 
 import { DataTypes } from "sequelize";
 import { sequelize } from "../db";
-import { Favorite } from "../types/types";
+import { FavoriteAtr } from "../types/types";
 
-const Favorite = sequelize.define<Favorite>(
+const Favorite = sequelize.define<FavoriteAtr>(
   "favorite",
   {
     id: {

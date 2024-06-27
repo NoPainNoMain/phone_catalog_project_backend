@@ -1,7 +1,7 @@
 import { ApiError } from "../src/errors/ApiError";
 import { CartItem } from "../src/models/CartItem.model";
 import { Product } from "../src/models/Product.model";
-import { CartItemAttributes } from "../src/types/types";
+import { CartItemAtr } from "../src/types/types";
 
 export const getCartProducts = async (userId: number) => {
   return await CartItem.findAll({
@@ -38,10 +38,7 @@ export const deleteCartProduct = async (id: number) => {
   }
 };
 
-export const updateCartProduct = async (
-  id: number,
-  body: CartItemAttributes,
-) => {
+export const updateCartProduct = async (id: number, body: CartItemAtr) => {
   try {
     const updatedCartProduct = await CartItem.update(
       { ...body },
