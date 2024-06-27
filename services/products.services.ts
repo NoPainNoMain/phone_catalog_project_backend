@@ -87,6 +87,19 @@ export const createDetails = async (
   return ProductDetails.bulkCreate(details);
 };
 
+export const getRecommendedProducts = async (productId: string) => {
+  const productDetails = await getProductDetails(productId);
+
+  const recommendedProducts = await Product.findAll({
+    where: {
+      color: productDetails.dataValues.color,
+      category: productDetails.dataValues.category,
+    },
+  });
+
+  return recommendedProducts;
+};
+
 export default {
   getProducts,
   getProductDetails,
@@ -94,4 +107,5 @@ export default {
   createDetails,
   getNewProducts,
   getDiscountedProducts,
+  getRecommendedProducts,
 };
