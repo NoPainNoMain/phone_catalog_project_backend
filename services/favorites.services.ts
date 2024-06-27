@@ -3,7 +3,7 @@ import { Favorite } from "../src/models/Favorite.model";
 import { Product } from "../src/models/Product.model";
 
 export const getFavoriteProducts = async (userId: number) => {
-  const { rows } = await Product.findAndCountAll({
+  return Product.findAll({
     include: [
       {
         model: Favorite,
@@ -13,10 +13,6 @@ export const getFavoriteProducts = async (userId: number) => {
       },
     ],
   });
-
-  return {
-    data: rows,
-  };
 };
 
 export const addFavoriteProduct = async ({
@@ -34,4 +30,19 @@ export const addFavoriteProduct = async ({
   }
 };
 
-export default { getFavoriteProducts, addFavoriteProduct };
+export const deleteFavoriteProduct = async (id: number) => {
+  try {
+    const favoriteProduct = await Favorite.destroy({
+      where: { id },
+    });
+    return favoriteProduct;
+  } catch (error) {
+    throw ApiError.badRequest("ProductID or userID was not found");
+  }
+};
+
+export default {
+  getFavoriteProducts,
+  addFavoriteProduct,
+  deleteFavoriteProduct,
+};

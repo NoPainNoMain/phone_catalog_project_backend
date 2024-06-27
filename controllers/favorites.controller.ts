@@ -35,3 +35,15 @@ export const addFavoriteProduct: RequestHandler = async (req, res, next) => {
     next(e);
   }
 };
+
+export const deleteFavoriteProduct: RequestHandler = async (req, res, next) => {
+  const { id } = req.params;
+
+  if (!id) {
+    next(ApiError.notFound("ID not found"));
+    return;
+  }
+
+  await favoritesServices.deleteFavoriteProduct(+id);
+  res.sendStatus(204);
+};
