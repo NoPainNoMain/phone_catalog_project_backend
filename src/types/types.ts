@@ -1,4 +1,4 @@
-import { Model } from "sequelize";
+import { Model, NonAttribute } from "sequelize";
 
 export interface ProductAttributes {
   category: string;
@@ -35,6 +35,7 @@ export interface ProductDetailsAttributes {
   camera: string;
   zoom: string;
   cell: string[];
+  product: NonAttribute<ProductAttributes>;
 }
 
 export type ProductDetailsCreationAttributes = ProductDetailsAttributes;

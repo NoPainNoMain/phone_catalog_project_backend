@@ -1,8 +1,5 @@
 import { Order } from "sequelize";
-import productsService, {
-  getDiscountedProducts,
-  getNewProducts,
-} from "../services/products.services";
+import productsService from "../services/products.services";
 
 import { RequestHandler } from "express";
 import { ApiError } from "../src/errors/ApiError";
@@ -44,13 +41,27 @@ export const getProducts: RequestHandler = async (req, res, next) => {
   }
 };
 
+export const getProductDetails: RequestHandler = async (req, res, next) => {
+  const { id } = req.params;
+
+  console.log(id);
+
+  try {
+    const productDetails = await productsService.getProductDetails(id);
+
+    res.send(productDetails);
+  } catch (e) {
+    next(e);
+  }
+};
+
 export const getDiscountedProductsHandler: RequestHandler = async (
   _req,
   res,
   next,
 ) => {
   try {
-    const discountedProducts = await getDiscountedProducts();
+    const discountedProducts = await productsService.getDiscountedProducts();
     res.send(discountedProducts);
   } catch (error) {
     next(error);
@@ -63,7 +74,7 @@ export const getNewProductsHandler: RequestHandler = async (
   next,
 ) => {
   try {
-    const newProducts = await getNewProducts();
+    const newProducts = await productsService.getNewProducts();
     res.send(newProducts);
   } catch (error) {
     next(error);
@@ -73,4 +84,5 @@ export default {
   getProducts,
   getDiscountedProductsHandler,
   getNewProductsHandler,
+  getProductDetails,
 };
