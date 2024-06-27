@@ -5,7 +5,7 @@ import { sequelize } from "../db";
 import { FavoriteAtr } from "../types/types";
 
 const Favorite = sequelize.define<FavoriteAtr>(
-  "favorite",
+  "Favorite",
   {
     id: {
       type: DataTypes.INTEGER,
