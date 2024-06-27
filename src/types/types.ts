@@ -49,12 +49,19 @@ export interface UserAttributes {
 
 export type UserCreationAttributes = UserAttributes;
 
-export interface FavoriteAttributes {}
+export interface FavoriteAttributes {
+  id: number;
+  userId: number;
+  productId: number;
+}
 
 export type FavoriteCreationAttributes = FavoriteAttributes;
 
 export interface CartItemAttributes {
   quantity: number;
+  id: number;
+  userId: number;
+  productId: number;
 }
 
 export type CartItemCreationAttributes = CartItemAttributes;

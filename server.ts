@@ -4,6 +4,8 @@ import { fileURLToPath } from "url";
 import productsRouter from "./routers/products.router";
 import { errorHandler } from "./src/middlewares/errorHandler";
 import cors from "cors";
+import favoritesRouter from "./routers/favorites.router";
+import cartRouter from "./routers/cart.router";
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
@@ -16,6 +18,8 @@ app.use(cors({ origin }));
 app.use("/static", express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use("/products", productsRouter);
+app.use("/favorites", favoritesRouter);
+app.use("/cart", cartRouter);
 app.get("/", (req, res) => {
   res.send("Server is running. Static files are served at /static");
 });
