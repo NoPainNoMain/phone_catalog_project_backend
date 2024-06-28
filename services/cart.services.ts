@@ -1,7 +1,6 @@
-import { ApiError } from "../src/errors/ApiError";
-import { CartItem } from "../src/models/CartItem.model";
-import { Product } from "../src/models/Product.model";
-import { CartItemAtr } from "../src/types/types";
+import { ApiError } from "../src/errors/ApiError.js";
+import { CartItem, Product } from "../src/models/models.js";
+import { CartItemAtr } from "../src/types/types.js";
 
 export const getCartProducts = async (userId: number) => {
   return await CartItem.findAll({
@@ -23,6 +22,7 @@ export const addCartProduct = async ({
     const cartProduct = await CartItem.create({ productId, userId });
     return cartProduct;
   } catch (error) {
+    console.log(error);
     throw ApiError.badRequest("ProductID or userID was not found");
   }
 };

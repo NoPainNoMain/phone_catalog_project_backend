@@ -1,8 +1,8 @@
-import { Product } from "./Product.model";
-import { ProductDetails } from "./ProductDetails.model";
-import { Favorite } from "./Favorite.model";
-import { CartItem } from "./CartItem.model";
-import { User } from "./User.model";
+import { Product } from "./Product.model.js";
+import { ProductDetails } from "./ProductDetails.model.js";
+import { Favorite } from "./Favorite.model.js";
+import { CartItem } from "./CartItem.model.js";
+import { User } from "./User.model.js";
 
 ProductDetails.hasOne(Product, {
   foreignKey: { name: "itemId", allowNull: false },

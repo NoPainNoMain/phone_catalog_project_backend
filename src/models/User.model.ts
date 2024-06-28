@@ -1,11 +1,11 @@
 "use strict";
 
 import { DataTypes } from "sequelize";
-import { sequelize } from "../db";
-import { UserAtr } from "../types/types";
+import { sequelize } from "../db.js";
+import { UserAtr } from "../types/types.js";
 
 const User = sequelize.define<UserAtr>(
-  "User",
+  "user",
   {
     id: {
       primaryKey: true,

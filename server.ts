@@ -1,11 +1,11 @@
 import express, { Express } from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import productsRouter from "./routers/products.router";
-import { errorHandler } from "./src/middlewares/errorHandler";
+import productsRouter from "./routers/products.router.js";
+import { errorHandler } from "./src/middlewares/errorHandler.js";
 import cors from "cors";
-import favoritesRouter from "./routers/favorites.router";
-import cartRouter from "./routers/cart.router";
+import favoritesRouter from "./routers/favorites.router.js";
+import cartRouter from "./routers/cart.router.js";
 
 const app: Express = express();
 const port = process.env.PORT || 3000;

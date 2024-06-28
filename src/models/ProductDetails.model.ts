@@ -1,11 +1,11 @@
 "use strict";
 
 import { DataTypes } from "sequelize";
-import { sequelize } from "../db";
-import { ProductDetailsAtr } from "../types/types";
+import { sequelize } from "../db.js";
+import { ProductDetailsAtr } from "../types/types.js";
 
 const ProductDetails = sequelize.define<ProductDetailsAtr>(
-  "ProductDetail",
+  "productDetail",
   {
     id: {
       type: DataTypes.STRING,

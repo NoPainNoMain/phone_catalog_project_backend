@@ -1,8 +1,8 @@
 import { Order } from "sequelize";
-import productsService from "../services/products.services";
+import productsService from "../services/products.services.js";
 
 import { RequestHandler } from "express";
-import { ApiError } from "../src/errors/ApiError";
+import { ApiError } from "../src/errors/ApiError.js";
 
 export const getProducts: RequestHandler = async (req, res, next) => {
   const { page, perPage, sortBy, category, search } = req.query;

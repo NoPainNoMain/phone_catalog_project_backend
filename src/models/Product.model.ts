@@ -1,11 +1,12 @@
 "use strict";
 
 import { DataTypes } from "sequelize";
-import { sequelize } from "../db";
-import { ProductAtr } from "../types/types";
+import { sequelize } from "../db.js";
+import { ProductAtr } from "../types/types.js";
+import { ProductDetails } from "./ProductDetails.model.js";
 
 const Product = sequelize.define<ProductAtr>(
-  "Product",
+  "product",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,7 +16,7 @@ const Product = sequelize.define<ProductAtr>(
     itemId: {
       type: DataTypes.STRING,
       references: {
-        model: "ProductDetail",
+        model: ProductDetails,
         key: "id",
       },
     },

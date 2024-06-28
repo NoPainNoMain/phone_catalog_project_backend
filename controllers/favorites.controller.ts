@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
-import { ApiError } from "../src/errors/ApiError";
-import favoritesServices from "../services/favorites.services";
+import { ApiError } from "../src/errors/ApiError.js";
+import favoritesServices from "../services/favorites.services.js";
 
 export const getFavoriteProducts: RequestHandler = async (req, res, next) => {
   const { userId } = req.query;

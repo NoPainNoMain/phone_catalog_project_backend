@@ -1,11 +1,13 @@
 "use strict";
 
 import { DataTypes } from "sequelize";
-import { sequelize } from "../db";
-import { FavoriteAtr } from "../types/types";
+import { sequelize } from "../db.js";
+import { FavoriteAtr } from "../types/types.js";
+import { User } from "./User.model.js";
+import { Product } from "./Product.model.js";
 
 const Favorite = sequelize.define<FavoriteAtr>(
-  "Favorite",
+  "favorite",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,14 +17,14 @@ const Favorite = sequelize.define<FavoriteAtr>(
     userId: {
       type: DataTypes.INTEGER,
       references: {
-        model: "User",
+        model: User,
         key: "id",
       },
     },
     productId: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Product",
+        model: Product,
         key: "id",
       },
     },

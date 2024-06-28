@@ -3,7 +3,7 @@ import {
   getFavoriteProducts,
   addFavoriteProduct,
   deleteFavoriteProduct,
-} from "../controllers/favorites.controller";
+} from "../controllers/favorites.controller.js";
 
 const favoritesRouter = express.Router();
 

@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
-import { ApiError } from "../src/errors/ApiError";
-import cartServices from "../services/cart.services";
+import { ApiError } from "../src/errors/ApiError.js";
+import cartServices from "../services/cart.services.js";
 
 export const getCartProducts: RequestHandler = async (req, res, next) => {
   const { userId } = req.query;

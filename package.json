@@ -11,7 +11,9 @@
     "config-db": "npx tsx ./src/config.ts",
     "dev": "tsx watch server.ts",
     "prepare": "husky",
-    "seed-db": "tsx ./src/seed.ts"
+    "seed-db": "tsx ./src/seed.ts",
+    "build": "npm i && tsc",
+    "start": "node ./dist/server.js"
   },
   "author": "",
   "license": "ISC",
