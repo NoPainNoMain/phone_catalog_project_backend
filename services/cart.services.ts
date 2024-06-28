@@ -22,6 +22,7 @@ export const addCartProduct = async ({
     const cartProduct = await CartItem.create({ productId, userId });
     return cartProduct;
   } catch (error) {
+    console.log(error);
     throw ApiError.badRequest("ProductID or userID was not found");
   }
 };
